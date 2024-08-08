@@ -1,5 +1,7 @@
 import Container from "react-bootstrap/Container";
-import GameChoiceCard from "../common/GameChoiceCard";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 function Landing() {
   return (
@@ -8,8 +10,15 @@ function Landing() {
     >
       <h1>Battle Cards! Welcome to the arena! </h1>
       <p>Choose your path</p>
-      <GameChoiceCard header="Horror" btnText="Choose the horror" />
-      <GameChoiceCard header="Family" btnText="Family Time!" />
+
+      <Card id="horror">
+        <h2>Horror</h2>
+        <Link to="/">Choose the Horror!</Link>
+      </Card>
+      <Card id="family">
+        <h2>Family</h2>
+        <Link to={"/"}>Family Time!</Link>
+      </Card>
     </Container>
   );
 }
