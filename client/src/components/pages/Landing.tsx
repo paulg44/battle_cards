@@ -2,18 +2,18 @@ import "../../assets/css/landing.css";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import desktopBackgroundImg from "../../assets/img/m-wrona-pCgxm-HDMNs-unsplash.jpg";
 
 function Landing() {
   return (
     <div
-      style={{
-        background: `url(${desktopBackgroundImg}) no-repeat center center/cover`,
-        width: "100vw",
-        height: "100vh",
-        position: "absolute",
-        top: 0,
-      }}
+      // style={{
+      //   background: `url(${desktopBackgroundImg}) no-repeat center center/cover`,
+      //   width: "100vw",
+      //   height: "100vh",
+      //   position: "absolute",
+      //   top: 0,
+      // }}
+      className="landingBackground"
     >
       <Container className="landing">
         <h1>Battle Cards! Welcome to the arena! </h1>

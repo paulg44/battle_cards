@@ -9,3 +9,20 @@
 .horrorLandingCard {
   background: transparent;
 }
+
+.landingBackground {
+  background: url("../img/m-wrona-pCgxm-HDMNs-unsplash.jpg") no-repeat center
+    center/cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+
+/* Media query for screens 600px or less */
+@media (max-width: 600px) {
+  .landingBackground {
+    background: url("../img/charlesdeluvio-pcZvxrAyYoQ-unsplash.jpg") no-repeat
+      center center/cover;
+  }
+}
