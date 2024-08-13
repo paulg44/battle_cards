@@ -1,0 +1,8 @@
+.navbar {
+  overflow: hidden;
+  background-color: transparent;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
