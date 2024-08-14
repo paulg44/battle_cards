@@ -1,0 +1,18 @@
+{
+  "horror": {
+    "slashers": [
+      {
+        "id": 1,
+        "name": "Freddy",
+        "description": "The Krueger",
+        "special": "glove",
+        "weakness": "fire",
+        "health": 100,
+        "power": 50
+      }
+    ],
+    "monsters": [],
+    "vampires": [],
+    "ghosts": []
+  }
+}
