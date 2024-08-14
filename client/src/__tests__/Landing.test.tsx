@@ -2,14 +2,14 @@ import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Landing from "../components/pages/Landing";
 
-it("displays a link to horror page", () => {
+it("displays two links to game modes", () => {
   render(
     <MemoryRouter>
       <Landing />
     </MemoryRouter>
   );
 
-  const horrorLink = screen.getByRole("link", { name: /enter the horror/i });
+  const links = screen.getAllByRole("link");
 
-  expect(horrorLink).toBeInTheDocument();
+  expect(links).toHaveLength(2);
 });

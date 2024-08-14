@@ -10,7 +10,7 @@ test("battle card displays a name, image, description etc", () => {
     </MemoryRouter>
   );
 
-  const cardName = screen.getByRole("heading");
+  const cardName = screen.getByRole("heading", { name: /freddy/i });
   const cardDescription = screen.getByText(/glove/i);
 
   expect(cardName).toBeInTheDocument();
