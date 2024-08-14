@@ -4,15 +4,380 @@
       {
         "id": 1,
         "name": "Freddy",
+        "image": "https://images.unsplash.com/photo-1698319905895-ca9124f0820e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnJlZGR5JTIwa3J1ZWdlcnxlbnwwfHwwfHx8MA%3D%3D",
         "description": "The Krueger",
         "special": "glove",
         "weakness": "fire",
         "health": 100,
         "power": 50
+      },
+      {
+        "id": 2,
+        "name": "Jason",
+        "image": "https://images.unsplash.com/photo-1667984282637-2ef8507a16b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amFzb24lMjB2b29yaGVlc3xlbnwwfHwwfHx8MA%3D%3D",
+        "description": "The Voorhees",
+        "special": "machete",
+        "weakness": "water",
+        "health": 120,
+        "power": 60
+      },
+      {
+        "id": 3,
+        "name": "Michael",
+        "image": "https://wallpapers.com/images/high/creepy-michael-myers-pd7pw0a5em9vtvfx.webp",
+        "description": "The Myers",
+        "special": "kitchen knife",
+        "weakness": "sibling bond",
+        "health": 110,
+        "power": 55
+      },
+      {
+        "id": 4,
+        "name": "Leatherface",
+        "image": "https://wallpapers.com/images/high/leatherface-mortal-kombat-wy9raqcz52l6jrxi.webp",
+        "description": "The Cannibal",
+        "special": "chainsaw",
+        "weakness": "family loyalty",
+        "health": 130,
+        "power": 70
+      },
+      {
+        "id": 5,
+        "name": "Ghostface",
+        "image": "https://images.unsplash.com/photo-1634190969752-e269a0a9e1c2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2hvc3RmYWNlfGVufDB8fDB8fHww",
+        "description": "The Killer",
+        "special": "hunting knife",
+        "weakness": "unmasking",
+        "health": 80,
+        "power": 40
+      },
+      {
+        "id": 6,
+        "name": "Chucky",
+        "image": "https://images.unsplash.com/photo-1613679074971-91fc27180061?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2h1Y2t5fGVufDB8fDB8fHww",
+        "description": "The Doll",
+        "special": "voodoo",
+        "weakness": "body destruction",
+        "health": 50,
+        "power": 30
+      },
+      {
+        "id": 7,
+        "name": "Jigsaw",
+        "image": "https://wallpapers.com/images/high/horror-iphone-fdv65p12c9v9u0cw.webp",
+        "description": "The Trapper",
+        "special": "traps",
+        "weakness": "cancer",
+        "health": 40,
+        "power": 70
+      },
+      {
+        "id": 8,
+        "name": "Candyman",
+        "image": "https://wallpapers.com/images/high/candyman-brown-silhouette-pge1sdw42rmxxp8p.webp",
+        "description": "The Hooked",
+        "special": "hook hand",
+        "weakness": "reflection",
+        "health": 90,
+        "power": 60
+      },
+      {
+        "id": 9,
+        "name": "Pinhead",
+        "image": "https://wallpapers.com/images/high/pinhead-hellraiser-movie-ux5rrs9sj8kycf3v.webp",
+        "description": "The Cenobite",
+        "special": "chains",
+        "weakness": "puzzle box",
+        "health": 100,
+        "power": 80
+      },
+      {
+        "id": 10,
+        "name": "Norman",
+        "image": "https://images.unsplash.com/photo-1513608951623-a2643b538758?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmF0ZXMlMjBob3RlbHxlbnwwfHwwfHx8MA%3D%3D",
+        "description": "The Bates",
+        "special": "stealth",
+        "weakness": "mother complex",
+        "health": 70,
+        "power": 40
       }
     ],
-    "monsters": [],
-    "vampires": [],
-    "ghosts": []
+    "monsters": [
+      {
+        "id": 1,
+        "name": "Godzilla",
+        "description": "The King of Monsters",
+        "special": "atomic breath",
+        "weakness": "oxygen destroyer",
+        "health": 200,
+        "power": 150
+      },
+      {
+        "id": 2,
+        "name": "King Kong",
+        "description": "The Giant Ape",
+        "special": "strength",
+        "weakness": "aircraft",
+        "health": 180,
+        "power": 140
+      },
+      {
+        "id": 3,
+        "name": "The Mummy",
+        "description": "The Undead Pharaoh",
+        "special": "ancient curses",
+        "weakness": "sacred artifacts",
+        "health": 100,
+        "power": 50
+      },
+      {
+        "id": 4,
+        "name": "The Wolfman",
+        "description": "The Lycanthrope",
+        "special": "werewolf transformation",
+        "weakness": "silver",
+        "health": 120,
+        "power": 70
+      },
+      {
+        "id": 5,
+        "name": "Frankenstein",
+        "description": "The Monster",
+        "special": "superhuman strength",
+        "weakness": "fire",
+        "health": 150,
+        "power": 80
+      },
+      {
+        "id": 6,
+        "name": "The Creature",
+        "description": "The Gill-man",
+        "special": "aquatic abilities",
+        "weakness": "dehydration",
+        "health": 90,
+        "power": 60
+      },
+      {
+        "id": 7,
+        "name": "Cthulhu",
+        "description": "The Great Old One",
+        "special": "mind control",
+        "weakness": "ancient rituals",
+        "health": 250,
+        "power": 200
+      },
+      {
+        "id": 8,
+        "name": "The Blob",
+        "description": "The Amorphous Mass",
+        "special": "engulfing",
+        "weakness": "cold",
+        "health": 110,
+        "power": 70
+      },
+      {
+        "id": 9,
+        "name": "The Thing",
+        "description": "The Shape-shifter",
+        "special": "mimicry",
+        "weakness": "fire",
+        "health": 130,
+        "power": 90
+      },
+      {
+        "id": 10,
+        "name": "The Invisible Man",
+        "description": "The Unseen Terror",
+        "special": "invisibility",
+        "weakness": "dust or paint",
+        "health": 70,
+        "power": 50
+      }
+    ],
+    "vampires": [
+      {
+        "id": 1,
+        "name": "Dracula",
+        "description": "The Count",
+        "special": "shapeshifting",
+        "weakness": "sunlight",
+        "health": 150,
+        "power": 100
+      },
+      {
+        "id": 2,
+        "name": "Lestat",
+        "description": "The Rock Star",
+        "special": "immortality",
+        "weakness": "fire",
+        "health": 120,
+        "power": 90
+      },
+      {
+        "id": 3,
+        "name": "Blade",
+        "description": "The Daywalker",
+        "special": "vampire hunting",
+        "weakness": "thirst",
+        "health": 110,
+        "power": 90
+      },
+      {
+        "id": 4,
+        "name": "Selene",
+        "description": "The Death Dealer",
+        "special": "agility",
+        "weakness": "UV light",
+        "health": 100,
+        "power": 80
+      },
+      {
+        "id": 5,
+        "name": "Nosferatu",
+        "description": "The Plague",
+        "special": "shadow manipulation",
+        "weakness": "daylight",
+        "health": 90,
+        "power": 70
+      },
+      {
+        "id": 6,
+        "name": "Carmilla",
+        "description": "The Seductress",
+        "special": "illusion",
+        "weakness": "decapitation",
+        "health": 100,
+        "power": 85
+      },
+      {
+        "id": 7,
+        "name": "Alucard",
+        "description": "The Hunter",
+        "special": "regeneration",
+        "weakness": "holy weapons",
+        "health": 130,
+        "power": 100
+      },
+      {
+        "id": 8,
+        "name": "Vlad",
+        "description": "The Impaler",
+        "special": "impalement",
+        "weakness": "betrayal",
+        "health": 140,
+        "power": 90
+      },
+      {
+        "id": 9,
+        "name": "Eli",
+        "description": "The Child",
+        "special": "innocence",
+        "weakness": "invitation barrier",
+        "health": 80,
+        "power": 60
+      },
+      {
+        "id": 10,
+        "name": "Countess Bathory",
+        "description": "The Blood Countess",
+        "special": "blood baths",
+        "weakness": "isolation",
+        "health": 110,
+        "power": 75
+      }
+    ],
+    "ghosts": [
+      {
+        "id": 1,
+        "name": "Samara",
+        "description": "The Cursed Girl",
+        "special": "cursed videotape",
+        "weakness": "destroying the original tape",
+        "health": 90,
+        "power": 70
+      },
+      {
+        "id": 2,
+        "name": "The Woman in Black",
+        "description": "The Vengeful Spirit",
+        "special": "curse",
+        "weakness": "exorcism",
+        "health": 80,
+        "power": 60
+      },
+      {
+        "id": 3,
+        "name": "The Grudge",
+        "description": "The Ju-On",
+        "special": "vengeful curse",
+        "weakness": "exorcism",
+        "health": 70,
+
+        "power": 50
+      },
+      {
+        "id": 4,
+        "name": "The Phantom",
+        "description": "The Opera Ghost",
+        "special": "musical haunting",
+        "weakness": "love",
+        "health": 60,
+        "power": 40
+      },
+      {
+        "id": 5,
+        "name": "The Headless Horseman",
+        "description": "The Rider",
+        "special": "swordsmanship",
+        "weakness": "returning his head",
+        "health": 100,
+        "power": 70
+      },
+      {
+        "id": 6,
+        "name": "The Grey Lady",
+        "description": "The Mourning Spirit",
+        "special": "cold presence",
+        "weakness": "solving her murder",
+        "health": 50,
+        "power": 30
+      },
+      {
+        "id": 7,
+        "name": "The Poltergeist",
+        "description": "The Noisy Ghost",
+        "special": "object manipulation",
+        "weakness": "spiritual cleansing",
+        "health": 80,
+        "power": 60
+      },
+      {
+        "id": 8,
+        "name": "The Bell Witch",
+        "description": "The Witch Spirit",
+        "special": "haunting",
+        "weakness": "forgiveness",
+        "health": 70,
+        "power": 50
+      },
+      {
+        "id": 9,
+        "name": "Casper",
+        "description": "The Friendly Ghost",
+        "special": "intangible",
+        "weakness": "friendship",
+        "health": 40,
+        "power": 20
+      },
+      {
+        "id": 10,
+        "name": "La Llorona",
+        "description": "The Weeping Woman",
+        "special": "wailing",
+        "weakness": "redemption",
+        "health": 90,
+        "power": 65
+      }
+    ]
   }
 }
