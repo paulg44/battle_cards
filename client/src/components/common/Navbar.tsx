@@ -7,6 +7,11 @@ function Navbar() {
       <Link to={"/"} className="logo" id="logo">
         Horror Battle
       </Link>
+      <div className="navbarInfo">
+        <ul>
+          <li>Username</li>
+        </ul>
+      </div>
     </nav>
   );
 }

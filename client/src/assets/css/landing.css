@@ -6,8 +6,26 @@
   justify-content: center;
 }
 
+.landing h1 span {
+  font-size: 70px;
+}
+
 .horrorLandingCard {
   background: transparent;
+  text-align: center;
+}
+
+.landingPageLinks {
+  margin-top: 30px;
+}
+
+.landingPageLinks a {
+  color: red;
+  font-weight: bolder;
+  border: 2px solid white;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 20px;
 }
 
 .landingBackground {
