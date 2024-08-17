@@ -27,7 +27,7 @@ function SinglePlayerBattle() {
         </Link>
       </div>
 
-      {/* Have options to choose what characters the user wants etc */}
+      {/* Replace the card list with the quick start battle if thats what the user selects */}
       <div className="battleCardContainer">
         <BattleCard />
       </div>
