@@ -3,3 +3,12 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.quickBattleCardsContainer {
+  position: relative;
+  /* display: flex; */
+}
+
+.quickBattleCard {
+  /* position: absolute; */
+}

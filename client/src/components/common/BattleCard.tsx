@@ -2,17 +2,8 @@ import "../../assets/css/battleCard.css";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import horrorData from "../../data/horrorCard.json";
+import { battleCardTypes } from "../../data/types";
 
-type battleCardTypes = {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  special: string;
-  weakness: string;
-  health: number;
-  power: number;
-};
 function BattleCard() {
   return (
     <Container className="cardWrapper">
@@ -29,8 +20,6 @@ function BattleCard() {
           <p>{char.description}</p>
           <p>{char.special}</p>
           <p>{char.weakness}</p>
-          <p>{char.health}</p>
-          <p>{char.power}</p>
         </Card>
       ))}
     </Container>

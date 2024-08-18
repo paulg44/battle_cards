@@ -3,20 +3,10 @@ import "../../assets/css/singlePlayerHome.css";
 import "../../assets/css/quickBattle.css";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import BattleCard from "../common/BattleCard";
 import horrorData from "../../data/horrorCard.json";
-import { Link } from "react-router-dom";
-
-type battleCardTypes = {
-  id: number;
-  name: string;
-  image: string;
-  description: string;
-  special: string;
-  weakness: string;
-  health: number;
-  power: number;
-};
+import { battleCardTypes } from "../../data/types";
 
 function SinglePlayerBattle() {
   const [playerCards, setPlayerCards] = useState<battleCardTypes[]>([]);
@@ -25,7 +15,7 @@ function SinglePlayerBattle() {
   function handleQuickStart(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
-    // Create a random array of 5 computer and player cards
+    // Create a random array of cards
     // Add corresponding arrays to each state
     const shuffleCards = [...horrorData.horror.slashers].sort(
       () => Math.random() - 0.5
@@ -63,7 +53,7 @@ function SinglePlayerBattle() {
           <div className="quickBattleCardsContainer player">
             {playerCards.map((char: battleCardTypes) => (
               <Card
-                className="card"
+                className="quickBattleCard"
                 key={char.id}
                 style={{
                   background: `url(${char.image}) no-repeat center center/cover`,
@@ -71,10 +61,10 @@ function SinglePlayerBattle() {
               >
                 <h3>{char.name}</h3>
                 <p>{char.description}</p>
-                <p>{char.special}</p>
-                <p>{char.weakness}</p>
-                <p>{char.health}</p>
-                <p>{char.power}</p>
+                <p>{char.intellect}</p>
+                <p>{char.fearFactor}</p>
+                <p>{char.bodyCount}</p>
+                <p>{char.stealth}</p>
               </Card>
             ))}
           </div>
@@ -86,7 +76,7 @@ function SinglePlayerBattle() {
           <div className="quickBattleCardsContainer computer">
             {computerCards.map((char: battleCardTypes) => (
               <Card
-                className="card"
+                className="quickBattleCard"
                 key={char.id}
                 style={{
                   background: `url(${char.image}) no-repeat center center/cover`,
@@ -94,10 +84,10 @@ function SinglePlayerBattle() {
               >
                 <h3>{char.name}</h3>
                 <p>{char.description}</p>
-                <p>{char.special}</p>
-                <p>{char.weakness}</p>
-                <p>{char.health}</p>
-                <p>{char.power}</p>
+                <p>{char.intellect}</p>
+                <p>{char.fearFactor}</p>
+                <p>{char.bodyCount}</p>
+                <p>{char.stealth}</p>
               </Card>
             ))}
           </div>
