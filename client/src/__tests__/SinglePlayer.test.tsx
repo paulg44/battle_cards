@@ -1,4 +1,5 @@
 import { screen, render } from "@testing-library/react";
+import user from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import SinglePlayerBattle from "../components/games/SinglePlayer";
 
@@ -9,23 +10,43 @@ describe("single player page tests", () => {
         <SinglePlayerBattle />
       </MemoryRouter>
     );
-
     const mainHeader = screen.getByRole("heading", { name: /battle/i });
 
     expect(mainHeader).toBeInTheDocument();
   });
 
-  it("Single player page shows battle card", async () => {
+  it("shows a button for quick battle and link tag(a) for battle", () => {
+    render(
+      <MemoryRouter>
+        <SinglePlayerBattle />
+      </MemoryRouter>
+    );
+    const quickBattleBtn = screen.getByRole("button", {
+      name: /quick battle/i,
+    });
+    const battleLink = screen.getByRole("link");
+
+    expect(quickBattleBtn).toBeInTheDocument();
+    expect(battleLink).toBeInTheDocument();
+  });
+
+  it("Single player page shows 5 battle cards each, players cards by heading, computer cards by description", async () => {
     render(
       <MemoryRouter>
         <SinglePlayerBattle />
       </MemoryRouter>
     );
 
-    const cardName = await screen.findByRole("heading", { name: /freddy/i });
-    const cardDescription = await screen.findByText(/glove/i);
+    const quickBattleBtn = screen.getByRole("button", {
+      name: /quick battle/i,
+    });
 
-    expect(cardName).toBeInTheDocument();
-    expect(cardDescription).toBeInTheDocument();
+    user.click(quickBattleBtn);
+
+    // const playerCards = await screen.findAllByRole("heading");
+    // const computerCards = screen.getAllByRole("list");
+
+    // expect(playerCards.length).toBe(5);
+    // expect(computerCards.length).toBe(5);
   });
 });

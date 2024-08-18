@@ -60,11 +60,12 @@ function SinglePlayerBattle() {
                 }}
               >
                 <h3>{char.name}</h3>
-                <p>{char.description}</p>
-                <p>{char.intellect}</p>
-                <p>{char.fearFactor}</p>
-                <p>{char.bodyCount}</p>
-                <p>{char.stealth}</p>
+                <ul>
+                  <li>{char.intellect}</li>
+                  <li>{char.fearFactor}</li>
+                  <li>{char.bodyCount}</li>
+                  <li>{char.stealth}</li>
+                </ul>
               </Card>
             ))}
           </div>
@@ -84,10 +85,12 @@ function SinglePlayerBattle() {
               >
                 <h3>{char.name}</h3>
                 <p>{char.description}</p>
-                <p>{char.intellect}</p>
-                <p>{char.fearFactor}</p>
-                <p>{char.bodyCount}</p>
-                <p>{char.stealth}</p>
+                <ul>
+                  <li>{char.intellect}</li>
+                  <li>{char.fearFactor}</li>
+                  <li>{char.bodyCount}</li>
+                  <li>{char.stealth}</li>
+                </ul>
               </Card>
             ))}
           </div>
