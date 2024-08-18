@@ -2,6 +2,7 @@ import { MouseEvent, useState } from "react";
 import "../../assets/css/singlePlayerHome.css";
 import "../../assets/css/quickBattle.css";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import BattleCard from "../common/BattleCard";
 import horrorData from "../../data/horrorCard.json";
 import { Link } from "react-router-dom";
@@ -19,27 +20,22 @@ type battleCardTypes = {
 
 function SinglePlayerBattle() {
   const [playerCards, setPlayerCards] = useState<battleCardTypes[]>([]);
-  const [computerCards, setComputerCards] = useState([]);
+  const [computerCards, setComputerCards] = useState<battleCardTypes[]>([]);
 
   function handleQuickStart(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     // Create a random array of 5 computer and player cards
     // Add corresponding arrays to each state
+    const shuffleCards = [...horrorData.horror.slashers].sort(
+      () => Math.random() - 0.5
+    );
 
-    const randomPlayerCards = [];
-    const randomComputerCards = [];
-
-    for (let i = 0; i < 5; i++) {
-      const playerIndex = Math.floor(
-        Math.random() * horrorData.horror.slashers.length
-      );
-
-      randomPlayerCards.push(horrorData.horror.slashers[playerIndex]);
-    }
+    const randomPlayerCards = shuffleCards.slice(0, 5);
+    const randomComputerCards = shuffleCards.slice(5, 10);
 
     setPlayerCards(randomPlayerCards);
-    console.log(randomPlayerCards);
+    setComputerCards(randomComputerCards);
   }
 
   return (
@@ -66,7 +62,20 @@ function SinglePlayerBattle() {
           <h4>Player Name</h4>
           <div className="quickBattleCardsContainer player">
             {playerCards.map((char: battleCardTypes) => (
-              <BattleCard key={char.id} />
+              <Card
+                className="card"
+                key={char.id}
+                style={{
+                  background: `url(${char.image}) no-repeat center center/cover`,
+                }}
+              >
+                <h3>{char.name}</h3>
+                <p>{char.description}</p>
+                <p>{char.special}</p>
+                <p>{char.weakness}</p>
+                <p>{char.health}</p>
+                <p>{char.power}</p>
+              </Card>
             ))}
           </div>
         </div>
@@ -75,14 +84,27 @@ function SinglePlayerBattle() {
           {/* Replace with an array of name, different on each load */}
           <h4>Computer</h4>
           <div className="quickBattleCardsContainer computer">
-            {computerCards}
+            {computerCards.map((char: battleCardTypes) => (
+              <Card
+                className="card"
+                key={char.id}
+                style={{
+                  background: `url(${char.image}) no-repeat center center/cover`,
+                }}
+              >
+                <h3>{char.name}</h3>
+                <p>{char.description}</p>
+                <p>{char.special}</p>
+                <p>{char.weakness}</p>
+                <p>{char.health}</p>
+                <p>{char.power}</p>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
       {/* Replace the card list with the quick start battle if thats what the user selects */}
-      <div className="battleCardContainer">
-        <BattleCard />
-      </div>
+      <div className="battleCardContainer">{/* <BattleCard /> */}</div>
     </Container>
   );
 }
