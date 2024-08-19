@@ -1,4 +1,4 @@
-.quickBattleGameContainer {
+.innerQuickBattleGameContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,6 +12,10 @@
 .quickBattleCard {
   cursor: pointer;
   border: 2px solid transparent;
+}
+
+.quickBattleCard li:hover {
+  background-color: red;
 }
 
 .quickBattleCard.selected {

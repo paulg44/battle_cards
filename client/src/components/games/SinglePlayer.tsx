@@ -1,4 +1,4 @@
-import { MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import "../../assets/css/singlePlayerHome.css";
 import "../../assets/css/quickBattle.css";
 import Container from "react-bootstrap/Container";
@@ -13,9 +13,10 @@ function SinglePlayerBattle() {
   const [computerCards, setComputerCards] = useState<battleCardTypes[]>([]);
   const [playerCardSelected, setPlayerCardSelected] =
     useState<battleCardTypes | null>(null);
-  const [playerStatSelected, setPlayerStatSelected] = useState<string | null>(
-    null
-  );
+  const [playerStatSelected, setPlayerStatSelected] = useState<{
+    statName: string;
+    statValue: number;
+  } | null>(null);
 
   function handleQuickStart(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -38,6 +39,17 @@ function SinglePlayerBattle() {
     console.log(playerCardSelected);
   }
 
+  function handlePlayerStatSelection(statName: string, statValue: number) {
+    setPlayerStatSelected({ statName, statValue });
+  }
+
+  function handleQuickStartFight() {}
+
+  // To test my state changes when building
+  useEffect(() => {
+    console.log(playerCardSelected, playerStatSelected);
+  }, [playerCardSelected, playerStatSelected]);
+
   return (
     <Container>
       <h2>Battle Mode</h2>
@@ -58,56 +70,91 @@ function SinglePlayerBattle() {
       </div>
 
       <div className="quickBattleGameContainer">
-        <div className="player">
-          <h4>Player Name</h4>
-          <div className="quickBattleCardsContainer player">
-            {playerCards.map((char: battleCardTypes) => (
-              <Card
-                className={`quickBattleCard ${
-                  playerCardSelected?.id === char.id ? "selected" : ""
-                }`}
-                key={char.id}
-                onClick={() => handlePlayerCardSelection(char)}
-                style={{
-                  background: `url(${char.image}) no-repeat center center/cover`,
-                }}
-              >
-                <h3>{char.name}</h3>
-                <ul>
-                  <li>Intellect: {char.intellect}</li>
-                  <li>Fear: {char.fearFactor}</li>
-                  <li>Kills: {char.bodyCount}</li>
-                  <li>Stealth: {char.stealth}</li>
-                </ul>
-              </Card>
-            ))}
+        <div className="innerQuickBattleGameContainer">
+          <div className="player">
+            <h4>Player Name</h4>
+            <div className="quickBattleCardsContainer player">
+              {playerCards.map((char: battleCardTypes) => (
+                <Card
+                  className={`quickBattleCard ${
+                    playerCardSelected?.id === char.id ? "selected" : ""
+                  }`}
+                  key={char.id}
+                  onClick={() => handlePlayerCardSelection(char)}
+                  style={{
+                    background: `url(${char.image}) no-repeat center center/cover`,
+                  }}
+                >
+                  <h3>{char.name}</h3>
+                  <p>{char.description}</p>
+                  <ul>
+                    <li
+                      onClick={() =>
+                        handlePlayerStatSelection("intellect", char.intellect)
+                      }
+                    >
+                      Intellect: {char.intellect}
+                    </li>
+                    <li
+                      onClick={() =>
+                        handlePlayerStatSelection("fear", char.fearFactor)
+                      }
+                    >
+                      Fear: {char.fearFactor}
+                    </li>
+                    <li
+                      onClick={() =>
+                        handlePlayerStatSelection("kills", char.bodyCount)
+                      }
+                    >
+                      Kills: {char.bodyCount}
+                    </li>
+                    <li
+                      onClick={() =>
+                        handlePlayerStatSelection("stealth", char.stealth)
+                      }
+                    >
+                      Stealth: {char.stealth}
+                    </li>
+                  </ul>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <p>VS</p>
+          <div className="computer">
+            {/* Replace with an array of name, different on each load */}
+            <h4>Computer</h4>
+            <div className="quickBattleCardsContainer computer">
+              {computerCards.map((char: battleCardTypes) => (
+                <Card
+                  className="quickBattleCard"
+                  key={char.id}
+                  style={{
+                    background: `url(${char.image}) no-repeat center center/cover`,
+                  }}
+                >
+                  <h3>{char.name}</h3>
+                  <p>{char.description}</p>
+                  <ul>
+                    <li>Intellect: {char.intellect}</li>
+                    <li>Fear: {char.fearFactor}</li>
+                    <li>Kills: {char.bodyCount}</li>
+                    <li>Stealth: {char.stealth}</li>
+                  </ul>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
-        <p>VS</p>
-        <div className="computer">
-          {/* Replace with an array of name, different on each load */}
-          <h4>Computer</h4>
-          <div className="quickBattleCardsContainer computer">
-            {computerCards.map((char: battleCardTypes) => (
-              <Card
-                className="quickBattleCard"
-                key={char.id}
-                style={{
-                  background: `url(${char.image}) no-repeat center center/cover`,
-                }}
-              >
-                <h3>{char.name}</h3>
-                <p>{char.description}</p>
-                <ul>
-                  <li>{char.intellect}</li>
-                  <li>{char.fearFactor}</li>
-                  <li>{char.bodyCount}</li>
-                  <li>{char.stealth}</li>
-                </ul>
-              </Card>
-            ))}
-          </div>
-        </div>
+        <p>Chosen Fighter: {playerCardSelected?.name}</p>
+        <p>
+          Chosen Stat: {playerStatSelected?.statName} -{" "}
+          {playerStatSelected?.statValue}
+        </p>
+        <button type="button" onClick={handleQuickStartFight}>
+          Fight
+        </button>
       </div>
       {/* Replace the card list with the quick start battle if thats what the user selects */}
       <div className="battleCardContainer">{/* <BattleCard /> */}</div>
