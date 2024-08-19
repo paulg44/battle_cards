@@ -11,6 +11,11 @@ import { battleCardTypes } from "../../data/types";
 function SinglePlayerBattle() {
   const [playerCards, setPlayerCards] = useState<battleCardTypes[]>([]);
   const [computerCards, setComputerCards] = useState<battleCardTypes[]>([]);
+  const [playerCardSelected, setPlayerCardSelected] =
+    useState<battleCardTypes | null>(null);
+  const [playerStatSelected, setPlayerStatSelected] = useState<string | null>(
+    null
+  );
 
   function handleQuickStart(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -26,6 +31,11 @@ function SinglePlayerBattle() {
 
     setPlayerCards(randomPlayerCards);
     setComputerCards(randomComputerCards);
+  }
+
+  function handlePlayerCardSelection(card: battleCardTypes) {
+    setPlayerCardSelected(card);
+    console.log(playerCardSelected);
   }
 
   return (
@@ -53,18 +63,21 @@ function SinglePlayerBattle() {
           <div className="quickBattleCardsContainer player">
             {playerCards.map((char: battleCardTypes) => (
               <Card
-                className="quickBattleCard"
+                className={`quickBattleCard ${
+                  playerCardSelected?.id === char.id ? "selected" : ""
+                }`}
                 key={char.id}
+                onClick={() => handlePlayerCardSelection(char)}
                 style={{
                   background: `url(${char.image}) no-repeat center center/cover`,
                 }}
               >
                 <h3>{char.name}</h3>
                 <ul>
-                  <li>{char.intellect}</li>
-                  <li>{char.fearFactor}</li>
-                  <li>{char.bodyCount}</li>
-                  <li>{char.stealth}</li>
+                  <li>Intellect: {char.intellect}</li>
+                  <li>Fear: {char.fearFactor}</li>
+                  <li>Kills: {char.bodyCount}</li>
+                  <li>Stealth: {char.stealth}</li>
                 </ul>
               </Card>
             ))}

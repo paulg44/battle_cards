@@ -10,5 +10,10 @@
 }
 
 .quickBattleCard {
-  /* position: absolute; */
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.quickBattleCard.selected {
+  border-color: red;
 }

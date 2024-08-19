@@ -29,24 +29,4 @@ describe("single player page tests", () => {
     expect(quickBattleBtn).toBeInTheDocument();
     expect(battleLink).toBeInTheDocument();
   });
-
-  it("Single player page shows 5 battle cards each, players cards by heading, computer cards by description", async () => {
-    render(
-      <MemoryRouter>
-        <SinglePlayerBattle />
-      </MemoryRouter>
-    );
-
-    const quickBattleBtn = screen.getByRole("button", {
-      name: /quick battle/i,
-    });
-
-    user.click(quickBattleBtn);
-
-    // const playerCards = await screen.findAllByRole("heading");
-    // const computerCards = screen.getAllByRole("list");
-
-    // expect(playerCards.length).toBe(5);
-    // expect(computerCards.length).toBe(5);
-  });
 });
