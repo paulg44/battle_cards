@@ -18,6 +18,7 @@ function SinglePlayerBattle() {
     statName: string;
     statValue: number;
   } | null>(null);
+  const [playerScore, setPlayerScore] = useState(0);
 
   function handleQuickStart(e: MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -33,6 +34,7 @@ function SinglePlayerBattle() {
 
     setPlayerCards(randomPlayerCards);
     setComputerCards(randomComputerCards);
+    setPlayerScore(0);
   }
 
   function handlePlayerCardSelection(card: battleCardTypes) {
@@ -49,18 +51,28 @@ function SinglePlayerBattle() {
     // Check against user choice
     // For the winner add the difference to score
     // The player or comp chooses the card depending on who won previous round, player goes first
-    const compCard =
-      computerCards[Math.floor(Math.random() * computerCards.length)];
+    if (playerCardSelected) {
+      const compCard =
+        computerCards[Math.floor(Math.random() * computerCards.length)];
 
-    const compCardStatKeys = Object.keys(compCard.stats) as Array<keyof Stats>;
+      const compCardStatKeys = Object.keys(compCard.stats) as Array<
+        keyof Stats
+      >;
 
-    const compRandomStatKey =
-      compCardStatKeys[Math.floor(Math.random() * compCardStatKeys.length)];
+      const compRandomStatKey =
+        compCardStatKeys[Math.floor(Math.random() * compCardStatKeys.length)];
 
-    const compStatValue = compCard.stats[compRandomStatKey];
+      const compStatValue = compCard.stats[compRandomStatKey];
 
-    console.log(compCard);
-    console.log(compRandomStatKey, compStatValue);
+      console.log(compCard);
+      console.log(compRandomStatKey, compStatValue);
+
+      if (playerStatSelected?.statValue !== undefined) {
+        if (playerStatSelected.statValue > compStatValue) {
+          setPlayerScore(playerScore + 1);
+        }
+      }
+    }
   }
 
   // To test my state changes when building
@@ -176,6 +188,7 @@ function SinglePlayerBattle() {
         <button type="button" onClick={handleQuickStartFight}>
           Fight
         </button>
+        <p>Score: {playerScore}</p>
       </div>
       {/* Replace the card list with the quick start battle if thats what the user selects */}
       <div className="battleCardContainer">{/* <BattleCard /> */}</div>
