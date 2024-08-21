@@ -4,9 +4,10 @@ import "../../assets/css/quickBattle.css";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import BattleCard from "../common/BattleCard";
+// import BattleCard from "../common/BattleCard";
 import horrorData from "../../data/horrorCard.json";
 import { battleCardTypes } from "../../data/types";
+import { Stats } from "../../data/types";
 
 function SinglePlayerBattle() {
   const [playerCards, setPlayerCards] = useState<battleCardTypes[]>([]);
@@ -43,7 +44,24 @@ function SinglePlayerBattle() {
     setPlayerStatSelected({ statName, statValue });
   }
 
-  function handleQuickStartFight() {}
+  function handleQuickStartFight() {
+    // Set computer random choice
+    // Check against user choice
+    // For the winner add the difference to score
+    // The player or comp chooses the card depending on who won previous round, player goes first
+    const compCard =
+      computerCards[Math.floor(Math.random() * computerCards.length)];
+
+    const compCardStatKeys = Object.keys(compCard.stats) as Array<keyof Stats>;
+
+    const compRandomStatKey =
+      compCardStatKeys[Math.floor(Math.random() * compCardStatKeys.length)];
+
+    const compStatValue = compCard.stats[compRandomStatKey];
+
+    console.log(compCard);
+    console.log(compRandomStatKey, compStatValue);
+  }
 
   // To test my state changes when building
   useEffect(() => {
@@ -90,31 +108,34 @@ function SinglePlayerBattle() {
                   <ul>
                     <li
                       onClick={() =>
-                        handlePlayerStatSelection("intellect", char.intellect)
+                        handlePlayerStatSelection(
+                          "intellect",
+                          char.stats.intellect
+                        )
                       }
                     >
-                      Intellect: {char.intellect}
+                      Intellect: {char.stats.intellect}
                     </li>
                     <li
                       onClick={() =>
-                        handlePlayerStatSelection("fear", char.fearFactor)
+                        handlePlayerStatSelection("fear", char.stats.fearFactor)
                       }
                     >
-                      Fear: {char.fearFactor}
+                      Fear: {char.stats.fearFactor}
                     </li>
                     <li
                       onClick={() =>
-                        handlePlayerStatSelection("kills", char.bodyCount)
+                        handlePlayerStatSelection("kills", char.stats.bodyCount)
                       }
                     >
-                      Kills: {char.bodyCount}
+                      Kills: {char.stats.bodyCount}
                     </li>
                     <li
                       onClick={() =>
-                        handlePlayerStatSelection("stealth", char.stealth)
+                        handlePlayerStatSelection("stealth", char.stats.stealth)
                       }
                     >
-                      Stealth: {char.stealth}
+                      Stealth: {char.stats.stealth}
                     </li>
                   </ul>
                 </Card>
@@ -137,10 +158,10 @@ function SinglePlayerBattle() {
                   <h3>{char.name}</h3>
                   <p>{char.description}</p>
                   <ul>
-                    <li>Intellect: {char.intellect}</li>
-                    <li>Fear: {char.fearFactor}</li>
-                    <li>Kills: {char.bodyCount}</li>
-                    <li>Stealth: {char.stealth}</li>
+                    <li>Intellect: {char.stats.intellect}</li>
+                    <li>Fear: {char.stats.fearFactor}</li>
+                    <li>Kills: {char.stats.bodyCount}</li>
+                    <li>Stealth: {char.stats.stealth}</li>
                   </ul>
                 </Card>
               ))}

@@ -1,3 +1,12 @@
+export type Stats = {
+  health: number;
+  power: number;
+  intellect: number;
+  fearFactor: number;
+  bodyCount: number;
+  stealth: number;
+};
+
 export type battleCardTypes = {
   id: number;
   name: string;
@@ -5,10 +14,5 @@ export type battleCardTypes = {
   description: string;
   special: string;
   weakness: string;
-  health: number;
-  power: number;
-  intellect: number;
-  fearFactor: number;
-  bodyCount: number;
-  stealth: number;
+  stats: Stats;
 };

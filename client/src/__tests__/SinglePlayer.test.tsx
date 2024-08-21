@@ -26,6 +26,8 @@ describe("single player page tests", () => {
     });
     const battleLink = screen.getByRole("link");
 
+    user.click(quickBattleBtn);
+
     expect(quickBattleBtn).toBeInTheDocument();
     expect(battleLink).toBeInTheDocument();
   });
